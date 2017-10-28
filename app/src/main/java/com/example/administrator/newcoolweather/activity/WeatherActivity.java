@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.administrator.newcoolweather.R;
+import com.example.administrator.newcoolweather.service.AutoUpdateService;
 import com.example.administrator.newcoolweather.util.HttpCallbackListener;
 import com.example.administrator.newcoolweather.util.HttpUtil;
 import com.example.administrator.newcoolweather.util.Utility;
@@ -111,6 +112,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDateText.setText(prefs.getString("current_date",""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        Intent intent=new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     @Override
